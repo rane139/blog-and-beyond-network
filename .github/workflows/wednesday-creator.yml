@@ -2,13 +2,16 @@ name: Wednesday - Creator-Educator
 
 on:
   schedule:
-    - cron: '0 7 * * 3'
+    - cron: '0 1 * * 3'
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     concurrency: creator-pulse
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     
     steps:
       - name: Checkout

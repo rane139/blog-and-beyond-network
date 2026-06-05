@@ -2,13 +2,16 @@ name: Monday - Digital Detox
 
 on:
   schedule:
-    - cron: '0 7 * * 1'
+    - cron: '0 1 * * 1'
   workflow_dispatch:
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     concurrency: detox-pulse
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     
     steps:
       - name: Checkout
