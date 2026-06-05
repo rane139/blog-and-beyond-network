@@ -1,0 +1,50 @@
+name: Friday - Climate Travel
+
+on:
+  schedule:
+    - cron: '0 7 * * 5'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    concurrency: climate-pulse
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+          submodules: recursive
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.121.2'
+          extended: true
+      
+      - name: Install Dependencies
+        run: npm ci
+      
+      - name: Generate Post
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          HEALTHCHECKS_URL: ${{ secrets.HEALTHCHECKS_URL_CLIMATE }}
+          SITE_DIR: sites/climate
+          TOPIC_DAY: 1
+        run: node shared/site-poster.js
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./sites/climate/public
+          publish_branch: gh-pages-climate
+          cname: climate.blogandbeyond.com

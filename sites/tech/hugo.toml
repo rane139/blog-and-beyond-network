@@ -1,0 +1,33 @@
+baseURL = 'https://tech.blogandbeyond.com/'
+languageCode = 'en-us'
+title = 'Daily Pulse: Compact Tech'
+theme = 'PaperMod'
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[params]
+  env = "production"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = false
+  ShowToc = false
+  ShowFullTextinRSS = true
+  
+  [params.homeInfoParams]
+    Title = "Daily Pulse: Compact Tech"
+    Content = "Daily AI-powered insights. Pure information. No sales pitch."
+  
+  [params.label]
+    text = "Daily Pulse"
+    icon = "/icons/favicon.png"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

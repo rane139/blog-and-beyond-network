@@ -1,0 +1,21 @@
+[submodule "sites/health/themes/PaperMod"]
+	path = sites/health/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/detox/themes/PaperMod"]
+	path = sites/detox/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/nomad/themes/PaperMod"]
+	path = sites/nomad/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/creator/themes/PaperMod"]
+	path = sites/creator/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/tech/themes/PaperMod"]
+	path = sites/tech/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/climate/themes/PaperMod"]
+	path = sites/climate/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
+[submodule "sites/seo/themes/PaperMod"]
+	path = sites/seo/themes/PaperMod
+	url = https://github.com/adityatelange/hugo-PaperMod.git
