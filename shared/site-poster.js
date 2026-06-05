@@ -104,7 +104,7 @@ ${cleanContent}`;
     console.log(`   Post created: ${postFilename}`);
     
     // 5. Build Hugo site
-    console.log('🔨 STEP 5: Building site...');
+    console.log('🔨 STEP 6: Building site...');
     execSync(`cd ${SITE_DIR} && hugo --minify`, { stdio: 'inherit' });
     console.log('   Site built successfully');
     

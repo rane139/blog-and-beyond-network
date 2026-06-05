@@ -27,14 +27,18 @@ jobs:
           cache: 'npm'
       
       - name: Setup Hugo
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.23'
-        
-      - uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.146.0'
           extended: true
+
+      - name: Setup Hugo Modules
+        shell: bash
+        env:
+          SITE_DIR: sites/health
+        run: |
+          cd $SITE_DIR
+          hugo mod tidy
         
       - name: Install Dependencies
         run: npm ci
