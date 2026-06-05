@@ -1,6 +1,6 @@
 baseURL = 'https://nomad.blogandbeyond.com/'
 languageCode = 'en-us'
-title = 'Daily Pulse: Micro-Nomad'
+title = 'Blog And Beyond:  Micro-Nomad'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
@@ -17,11 +17,11 @@ enableEmoji = true
   ShowFullTextinRSS = true
   
   [params.homeInfoParams]
-    Title = "Daily Pulse: Micro-Nomad"
+    Title = "Blog And Beyond:  Micro-Nomad"
     Content = "Daily AI-powered insights. Pure information. No sales pitch."
   
   [params.label]
-    text = "Daily Pulse"
+    text = "Blog And Beyond: "
     icon = "/icons/favicon.png"
 
 [markup]

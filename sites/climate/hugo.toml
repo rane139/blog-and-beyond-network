@@ -1,6 +1,6 @@
 baseURL = 'https://climate.blogandbeyond.com/'
 languageCode = 'en-us'
-title = 'Daily Pulse: Climate Travel'
+title = 'Blog And Beyond:  Climate Travel'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
@@ -17,11 +17,11 @@ enableEmoji = true
   ShowFullTextinRSS = true
   
   [params.homeInfoParams]
-    Title = "Daily Pulse: Climate Travel"
+    Title = "Blog And Beyond:  Climate Travel"
     Content = "Daily AI-powered insights. Pure information. No sales pitch."
   
   [params.label]
-    text = "Daily Pulse"
+    text = "Blog And Beyond: "
     icon = "/icons/favicon.png"
 
 [markup]

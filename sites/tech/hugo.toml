@@ -1,6 +1,6 @@
 baseURL = 'https://tech.blogandbeyond.com/'
 languageCode = 'en-us'
-title = 'Daily Pulse: Compact Tech'
+title = 'Blog And Beyond:  Compact Tech'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
@@ -17,11 +17,11 @@ enableEmoji = true
   ShowFullTextinRSS = true
   
   [params.homeInfoParams]
-    Title = "Daily Pulse: Compact Tech"
+    Title = "Blog And Beyond:  Compact Tech"
     Content = "Daily AI-powered insights. Pure information. No sales pitch."
   
   [params.label]
-    text = "Daily Pulse"
+    text = "Blog And Beyond: "
     icon = "/icons/favicon.png"
 
 [markup]

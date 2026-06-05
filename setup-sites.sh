@@ -12,13 +12,13 @@ DOMAINS=(
   "seo.blogandbeyond.com"
 )
 TITLES=(
-  "Daily Pulse: Health"
-  "Daily Pulse: Digital Detox"
-  "Daily Pulse: Micro-Nomad"
-  "Daily Pulse: Creator-Educator"
-  "Daily Pulse: Compact Tech"
-  "Daily Pulse: Climate Travel"
-  "Daily Pulse: Zero-Click SEO"
+  "Blog And Beyond:  Health"
+  "Blog And Beyond:  Digital Detox"
+  "Blog And Beyond:  Micro-Nomad"
+  "Blog And Beyond:  Creator-Educator"
+  "Blog And Beyond:  Compact Tech"
+  "Blog And Beyond:  Climate Travel"
+  "Blog And Beyond:  Zero-Click SEO"
 )
 
 for i in "${!SITES[@]}"; do
@@ -60,7 +60,7 @@ enableEmoji = true
     Content = "Daily AI-powered insights. Pure information. No sales pitch."
   
   [params.label]
-    text = "Daily Pulse"
+    text = "Blog And Beyond: "
     icon = "/icons/favicon.png"
 
 [markup]

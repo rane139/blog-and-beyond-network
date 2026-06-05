@@ -8,7 +8,7 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    concurrency: tech-pulse
+    concurrency: tech-post
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

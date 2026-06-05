@@ -1,4 +1,4 @@
-name: Sunday - Health Pulse
+name: Sunday - Health Post
 
 on:
   schedule:
@@ -8,7 +8,7 @@ on:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    concurrency: health-pulse
+    concurrency: health-post
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true

@@ -26,7 +26,7 @@ async function main() {
   }
   
   console.log(`\n═══════════════════════════════════════`);
-  console.log(`  DAILY PULSE - PHASE 1`);
+  console.log(`  BLOG AND BEYOND:  - PHASE 1`);
   console.log(`═══════════════════════════════════════`);
   console.log(`  Site: ${SITE_DIR}`);
   console.log(`  Topic: ${topic.headline}`);
@@ -89,7 +89,7 @@ description: "${seoDescription}"
 cover:
   image: "/images/${imageFilename}"
   alt: "${topic.headline} - AI Generated Illustration"
-  caption: "Daily Pulse: ${topic.headline}"
+  caption: "Blog And Beyond:  ${topic.headline}"
   relative: false
 ---
 

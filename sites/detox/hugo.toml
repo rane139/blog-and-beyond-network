@@ -1,6 +1,6 @@
 baseURL = 'https://detox.blogandbeyond.com/'
 languageCode = 'en-us'
-title = 'Daily Pulse: Digital Detox'
+title = 'Blog And Beyond:  Digital Detox'
 theme = 'PaperMod'
 
 enableRobotsTXT = true
@@ -17,11 +17,11 @@ enableEmoji = true
   ShowFullTextinRSS = true
   
   [params.homeInfoParams]
-    Title = "Daily Pulse: Digital Detox"
+    Title = "Blog And Beyond:  Digital Detox"
     Content = "Daily AI-powered insights. Pure information. No sales pitch."
   
   [params.label]
-    text = "Daily Pulse"
+    text = "Blog And Beyond: "
     icon = "/icons/favicon.png"
 
 [markup]
