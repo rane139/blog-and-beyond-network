@@ -67,9 +67,10 @@ jobs:
           TOPIC_DAY: 0
 
         run: |
-        set -e  # Exit on error
-        set -x  # Print each command
-        node shared/site-poster.js 2>&1
+          set -e
+          echo "Starting post generation..."
+          node shared/site-poster.js
+          echo "Done."
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
