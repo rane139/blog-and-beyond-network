@@ -1,6 +1,3 @@
-[submodule "sites/health/themes/PaperMod"]
-	path = sites/health/themes/PaperMod
-	url = https://github.com/adityatelange/hugo-PaperMod.git
 [submodule "sites/detox/themes/PaperMod"]
 	path = sites/detox/themes/PaperMod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
