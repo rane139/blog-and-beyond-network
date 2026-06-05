@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://detox.blogandbeyond.com/sitemap.xml
