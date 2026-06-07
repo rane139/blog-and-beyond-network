@@ -64,13 +64,20 @@ async function main() {
     const today = new Date();
     const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
     const monthName = today.toLocaleDateString('en-US', { month: 'long' });
-    const dateContext = `Today is ${dayName}, ${monthName} ${today.getDate()}, ${today.getFullYear()}. Reference the current season naturally if relevant.`;
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
     
-    const randomAngle = angles[Math.floor(Math.random() * angles.length)];
-    const enhancedPrompt = `${topic.deepseekPrompt}\n\n${dateContext}\n\nIMPORTANT ANGLE FOR THIS POST: ${randomAngle}`;
+    // Use day-of-year + topic index as seed to pick a unique angle
+    const seed = (dayOfYear * 7 + TOPIC_DAY) % angles.length;
+    const selectedAngle = angles[seed];
+    
+    // Add a unique timestamp to prevent any caching
+    const uniqueId = Date.now().toString(36);
+    
+    const dateContext = `Today is ${dayName}, ${monthName} ${today.getDate()}, ${today.getFullYear()}. Write a COMPLETELY ORIGINAL post that has never been written before. Do not repeat any examples, metaphors, or phrases from previous posts about this topic. Unique identifier: ${uniqueId}`;
+    
+    const enhancedPrompt = `${topic.deepseekPrompt}\n\n${dateContext}\n\nIMPORTANT ANGLE FOR THIS POST: ${selectedAngle}`;
     
     const blogContent = await generateBlogPost(enhancedPrompt);
-    
     // 2. Generate image
     console.log('🎨 STEP 2: Generating header image...');
     const imageUrl = await generateBlogImage(

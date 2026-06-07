@@ -1,4 +1,3 @@
-
 const axios = require('axios');
 
 async function generateBlogPost(deepseekPrompt) {
@@ -15,24 +14,24 @@ async function generateBlogPost(deepseekPrompt) {
             content: `You are a professional blogger creating purely informational content. 
 Rules:
 - Write in clear, engaging Markdown
-- Use ## for main headings, ### for subheadings
+- Use ## for main headings
 - Keep paragraphs 2-4 sentences
 - Include actionable takeaways
-- NEVER mention specific brand names, products, prices, or make purchase recommendations
-- NEVER use phrases like "best X" or "top Y" or "we recommend"
+- NEVER mention specific brand names, products, or prices
 - Focus on concepts, strategies, and ideas
 - Sound like a knowledgeable human expert, not AI
-- Each post must be completely unique. Never repeat the same examples, metaphors, or opening hooks from previous posts on this topic.
-- Vary your writing style: sometimes analytical, sometimes narrative, sometimes practical.`
+- CRITICAL: Every post must be 100% unique. Use completely different examples, metaphors, opening hooks, and writing style from any previous post. Never repeat yourself.`
           },
           {
             role: 'user',
             content: deepseekPrompt
           }
         ],
-        temperature: 0.9,        // Increased from 0.8 for more variety
+        temperature: 0.95,
+        top_p: 0.95,
         max_tokens: 2000,
-        seed: Math.floor(Math.random() * 1000000),  // Random seed each time
+        frequency_penalty: 0.5,
+        presence_penalty: 0.5,
       },
       {
         headers: {
