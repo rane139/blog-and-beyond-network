@@ -12,6 +12,7 @@ const { pingStart, pingSuccess, pingFailure } = require('./healthcheck');
 const SITE_DIR = process.env.SITE_DIR || 'sites/health';
 const TOPIC_DAY = parseInt(process.env.TOPIC_DAY || '0');
 const HEALTHCHECKS_URL = process.env.HEALTHCHECKS_URL;
+const yaml = require('js-yaml');
 
 async function main() {
   await pingStart(HEALTHCHECKS_URL);
@@ -77,23 +78,29 @@ async function main() {
       .substring(0, 160)
       .trim();
     
-    const frontMatter = `---
-title: "${postTitle}"
-date: ${new Date().toISOString()}
-lastmod: ${new Date().toISOString()}
-slug: "${topic.slug}-${dateStr}"
-draft: false
-tags: ${JSON.stringify(topic.tags)}
-categories: ["${topic.category}"]
-description: "${seoDescription}"
-cover:
-  image: "/images/${imageFilename}"
-  alt: "${topic.headline} - AI Generated Illustration"
-  caption: "Blog And Beyond:  ${topic.headline}"
-  relative: false
----
-
-${cleanContent}`;
+    const frontMatterObj = {
+      title: postTitle,
+      date: new Date().toISOString(),
+      lastmod: new Date().toISOString(),
+      slug: `${topic.slug}-${dateStr}`,
+      draft: false,
+      tags: topic.tags,
+      categories: [topic.category],
+      description: seoDescription,
+      cover: {
+        image: `/images/${imageFilename}`,
+        alt: `${topic.headline} - AI Generated Illustration`,
+        caption: `Daily Pulse: ${topic.headline}`,
+        relative: false
+      }
+    };
+    
+    const frontMatter = `---\n${yaml.dump(frontMatterObj, { 
+      lineWidth: -1,
+      noRefs: true,
+      quotingType: '"',
+      forceQuotes: true
+    })}---\n\n${cleanContent}`;
     
     const postDir = path.join(SITE_DIR, 'content', 'posts');
     fs.mkdirSync(postDir, { recursive: true });
