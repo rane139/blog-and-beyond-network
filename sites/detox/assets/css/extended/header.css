@@ -26,7 +26,6 @@
     text-decoration: none;
     color: var(--content);
     transition: opacity 0.2s ease;
-    padding: 2px 0;
 }
 .brand-link:hover {
     opacity: 0.75;
@@ -53,6 +52,17 @@
     align-items: center;
     flex-shrink: 0;
 }
+
+body.dark .header {
+    background: var(--theme);
+}
+body.dark .brand-icon {
+    background: rgba(255, 255, 255, 0.08);
+}
+body.dark .brand-title {
+    color: var(--content);
+}
+
 @media (max-width: 600px) {
     .header {
         padding: 12px 0 10px;
