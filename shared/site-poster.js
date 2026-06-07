@@ -37,7 +37,6 @@ async function main() {
   try {
     // 1. Generate content
     console.log('📝 STEP 1: Generating content...');
-    const blogContent = await generateBlogPost(topic.deepseekPrompt);
 
     const angles = [
       'Focus on the latest research and scientific breakthroughs from this year.',
