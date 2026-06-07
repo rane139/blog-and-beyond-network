@@ -87,7 +87,6 @@
     transition: opacity 0.2s ease, transform 0.3s ease;
 }
 
-/* Light mode: show moon, hide sun */
 .theme-sun {
     opacity: 0;
     transform: rotate(-90deg) scale(0.5);
@@ -98,7 +97,6 @@
     transform: rotate(0) scale(1);
 }
 
-/* Dark mode: show sun, hide moon */
 html.dark .theme-sun,
 body.dark .theme-sun {
     opacity: 1;
