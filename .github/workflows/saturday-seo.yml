@@ -26,14 +26,6 @@ jobs:
           node-version: '22'
           cache: 'npm'
       
-      - name: Setup Hugo Modules
-        shell: bash
-        env:
-          SITE_DIR: sites/health
-        run: |
-          cd $SITE_DIR
-          hugo mod tidy
-      
       - name: Install Dependencies
         run: npm ci
       
@@ -45,11 +37,26 @@ jobs:
           SITE_DIR: sites/seo
           TOPIC_DAY: 1
         run: node shared/site-poster.js
+
+      - name: Commit New Post to Main
+        shell: bash
+        run: |
+          git config user.name "blog-automation-bot"
+          git config user.email "bot@blogandbeyond.local"
+          git add sites/seo/content/
+          git add sites/seo/static/images/
+          git diff --staged --quiet || git commit -m "📝 Seo: New post - $(date +%Y-%m-%d)"
+          git push origin master
+
+      - name: Build Hugo Site
+        shell: bash
+        run: |
+          cd sites/seo
+          hugo --minify
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/seo/public
-          publish_branch: gh-pages-seo
-          cname: seo.blogandbeyond.com
+          publish_branch: gh-pages

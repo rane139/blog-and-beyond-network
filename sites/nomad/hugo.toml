@@ -1,4 +1,4 @@
-baseURL = 'https://nomad.blogandbeyond.com/'
+baseURL = 'https://blogandbeyond.com/nomad'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Micro-Nomad'
 theme = 'PaperMod'

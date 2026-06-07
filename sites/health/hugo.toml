@@ -1,4 +1,4 @@
-baseURL = 'https://health.blogandbeyond.com/'
+baseURL = 'https://blogandbeyond.com/health'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Health'
 theme = 'PaperMod'

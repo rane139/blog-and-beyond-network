@@ -1,4 +1,4 @@
-baseURL = 'https://climate.blogandbeyond.com/'
+baseURL = 'https://blogandbeyond.com/climate'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Climate Travel'
 theme = 'PaperMod'

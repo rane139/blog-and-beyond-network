@@ -1,4 +1,4 @@
-baseURL = 'https://tech.blogandbeyond.com/'
+baseURL = 'https://blogandbeyond.com/tech'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Compact Tech'
 theme = 'PaperMod'

@@ -18,7 +18,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GH_PAT }}
-          submodules: recursive
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,14 +30,6 @@ jobs:
         with:
           hugo-version: '0.146.0'
           extended: true
-
-      - name: Setup Hugo Modules
-        shell: bash
-        env:
-          SITE_DIR: sites/health
-        run: |
-          cd $SITE_DIR
-          hugo mod tidy
         
       - name: Install Dependencies
         run: npm ci
@@ -80,10 +71,25 @@ jobs:
           node shared/site-poster.js
           echo "Done."
       
+      - name: Commit New Post to Main
+        shell: bash
+        run: |
+          git config user.name "blog-automation-bot"
+          git config user.email "bot@blogandbeyond.local"
+          git add sites/health/content/
+          git add sites/health/static/images/
+          git diff --staged --quiet || git commit -m "📝 Health: New post - $(date +%Y-%m-%d)"
+          git push origin master
+
+      - name: Build Hugo Site
+        shell: bash
+        run: |
+          cd sites/health
+          hugo --minify
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/health/public
-          publish_branch: gh-pages-health
-          cname: health.blogandbeyond.com
+          publish_branch: gh-pages

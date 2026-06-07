@@ -25,14 +25,6 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
-      
-      - name: Setup Hugo Modules
-        shell: bash
-        env:
-          SITE_DIR: sites/health
-        run: |
-          cd $SITE_DIR
-          hugo mod tidy
     
       - name: Install Dependencies
         run: npm ci
@@ -58,7 +50,7 @@ jobs:
         env:
           DEEPSEEK_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           REPLICATE_KEY: ${{ secrets.REPLICATE_API_TOKEN }}
-          SITE_DIR: sites/health
+          SITE_DIR: sites/detox
       
       - name: Generate Post
         env:
@@ -72,11 +64,26 @@ jobs:
           echo "Starting post generation..."
           node shared/site-poster.js
           echo "Done."
+
+      - name: Commit New Post to Main
+        shell: bash
+        run: |
+          git config user.name "blog-automation-bot"
+          git config user.email "bot@blogandbeyond.local"
+          git add sites/detox/content/
+          git add sites/detox/static/images/
+          git diff --staged --quiet || git commit -m "📝 Detox: New post - $(date +%Y-%m-%d)"
+          git push origin master
+
+      - name: Build Hugo Site
+        shell: bash
+        run: |
+          cd sites/detox
+          hugo --minify    
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/detox/public
-          publish_branch: gh-pages-detox
-          cname: detox.blogandbeyond.com
+          publish_branch: gh-pages
