@@ -1,3 +1,17 @@
+<script>
+(function() {
+    var STORAGE_KEY = 'pref-theme';
+    var theme = localStorage.getItem(STORAGE_KEY);
+    if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+})();
+</script>
+
 <header class="header">
     <div class="header-inner">
         <nav class="nav">
@@ -44,18 +58,12 @@
 
 <script>
 (function() {
-    const themeToggle = document.getElementById('theme-toggle');
+    var themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
     
-    const html = document.documentElement;
-    const body = document.body;
-    const STORAGE_KEY = 'pref-theme';
-    
-    function getTheme() {
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored === 'dark' || stored === 'light') return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
+    var html = document.documentElement;
+    var body = document.body;
+    var STORAGE_KEY = 'pref-theme';
     
     function setTheme(theme) {
         if (theme === 'dark') {
@@ -67,15 +75,15 @@
         }
         localStorage.setItem(STORAGE_KEY, theme);
         
-        const sun = document.getElementById('sun');
-        const moon = document.getElementById('moon');
+        var sun = document.getElementById('sun');
+        var moon = document.getElementById('moon');
         if (sun) sun.style.display = theme === 'dark' ? 'block' : 'none';
         if (moon) moon.style.display = theme === 'dark' ? 'none' : 'block';
     }
     
-    const moonIcon = document.getElementById('moon');
+    var moonIcon = document.getElementById('moon');
     if (moonIcon && !document.getElementById('sun')) {
-        const sunSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        var sunSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         sunSVG.setAttribute('id', 'sun');
         sunSVG.setAttribute('width', '18');
         sunSVG.setAttribute('height', '18');
@@ -90,10 +98,15 @@
         themeToggle.appendChild(sunSVG);
     }
     
-    setTheme(getTheme());
+    // Set initial icon state
+    var currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+    var sun = document.getElementById('sun');
+    var moon = document.getElementById('moon');
+    if (sun) sun.style.display = currentTheme === 'dark' ? 'block' : 'none';
+    if (moon) moon.style.display = currentTheme === 'dark' ? 'none' : 'block';
     
     themeToggle.addEventListener('click', function() {
-        const isDark = html.classList.contains('dark');
+        var isDark = html.classList.contains('dark');
         setTheme(isDark ? 'light' : 'dark');
     });
     
