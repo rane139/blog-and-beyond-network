@@ -16,16 +16,7 @@
     <div class="header-inner">
         <nav class="nav">
             <div class="nav-left">
-                {{ if .IsHome }}
-                <a class="brand-link" href="/">
-                    <span class="brand-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/>
-                        </svg>
-                    </span>
-                    <span class="brand-title">Blog and Beyond</span>
-                </a>
-                {{ else if eq .Kind "section" }}
+                {{ if or .IsHome (eq .Kind "section") }}
                 <a class="brand-link" href="/">
                     <span class="brand-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -46,7 +37,7 @@
                 {{ end }}
             </div>
             <div class="nav-right">
-                <button id="theme-toggle" accesskey="t" title="Toggle theme (Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="Toggle theme" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
@@ -98,7 +89,6 @@
         themeToggle.appendChild(sunSVG);
     }
     
-    // Set initial icon state
     var currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
     var sun = document.getElementById('sun');
     var moon = document.getElementById('moon');
@@ -108,12 +98,6 @@
     themeToggle.addEventListener('click', function() {
         var isDark = html.classList.contains('dark');
         setTheme(isDark ? 'light' : 'dark');
-    });
-    
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem(STORAGE_KEY)) {
-            setTheme(e.matches ? 'dark' : 'light');
-        }
     });
 })();
 </script>
