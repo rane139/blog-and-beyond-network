@@ -40,7 +40,7 @@ jobs:
           REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
           HEALTHCHECKS_URL: ${{ secrets.HEALTHCHECKS_URL_SEO }}
           SITE_DIR: sites/seo
-          TOPIC_DAY: 1
+          TOPIC_DAY: 6
         run: node shared/site-poster.js
 
       - name: Commit New Post to Main
