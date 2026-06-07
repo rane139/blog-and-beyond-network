@@ -1,32 +1,90 @@
-.logo-link {
-    font-size: 0.85rem;
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: background 0.2s;
-    white-space: nowrap;
-}
-
-.logo-link:hover {
-    background: var(--theme);
-    color: white;
-}
-
-.site-title a {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--content);
-    text-decoration: none;
-}
-
 .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 4px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--content);
+    transition: opacity 0.2s;
+}
+
+.brand-link:hover {
+    opacity: 0.7;
+}
+
+.brand-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.brand-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+#theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--content);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+#theme-toggle:hover {
+    background: var(--theme);
+    border-color: var(--theme);
+}
+
+/* Default: show moon, hide sun */
+#theme-icon-sun {
+    display: none;
+}
+
+#theme-icon-moon {
+    display: inline;
+}
+
+/* When dark mode is active, swap */
+html.dark #theme-icon-sun,
+body.dark #theme-icon-sun {
+    display: inline;
+}
+
+html.dark #theme-icon-moon,
+body.dark #theme-icon-moon {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .brand-title {
+        font-size: 0.95rem;
+    }
 }
