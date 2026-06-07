@@ -53,13 +53,17 @@
     flex-shrink: 0;
 }
 
-body.dark {
-    --theme: #1e293b;
-    --entry: #1e293b;
-    --primary: #94a3b8;
-    --secondary: #cbd5e1;
-    --content: #f1f5f9;
-    --border: #334155;
+/* Dark mode header */
+body.dark .header {
+    background: var(--theme);
+}
+
+body.dark .brand-title {
+    color: var(--content);
+}
+
+body.dark .brand-icon {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 600px) {
