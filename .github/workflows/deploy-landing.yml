@@ -1,0 +1,37 @@
+name: Blog and Beyond Page
+
+on:
+  push:
+    paths:
+      - 'sites/landing/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+      
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+      
+      - name: Build Landing Page
+        shell: bash
+        run: |
+          cd sites/landing
+          hugo --minify
+      
+      - name: Deploy to Root
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./sites/landing/public
+          publish_branch: gh-pages
+          keep_files: true

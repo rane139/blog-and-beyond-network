@@ -61,4 +61,5 @@ jobs:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/nomad/public
           publish_branch: gh-pages
+          keep_files: true
     # Deploy to gh-pages-nomad, cname: nomad.blogandbeyond.com

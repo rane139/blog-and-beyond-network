@@ -60,3 +60,4 @@ jobs:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/seo/public
           publish_branch: gh-pages
+          keep_files: true
