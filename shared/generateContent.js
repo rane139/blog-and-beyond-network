@@ -22,15 +22,17 @@ Rules:
 - NEVER use phrases like "best X" or "top Y" or "we recommend"
 - Focus on concepts, strategies, and ideas
 - Sound like a knowledgeable human expert, not AI
-- End with a "Key Takeaways" section`
+- Each post must be completely unique. Never repeat the same examples, metaphors, or opening hooks from previous posts on this topic.
+- Vary your writing style: sometimes analytical, sometimes narrative, sometimes practical.`
           },
           {
             role: 'user',
             content: deepseekPrompt
           }
         ],
-        temperature: 0.8,
+        temperature: 0.9,        // Increased from 0.8 for more variety
         max_tokens: 2000,
+        seed: Math.floor(Math.random() * 1000000),  // Random seed each time
       },
       {
         headers: {

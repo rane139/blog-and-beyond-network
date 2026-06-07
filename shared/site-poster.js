@@ -38,6 +38,39 @@ async function main() {
     // 1. Generate content
     console.log('📝 STEP 1: Generating content...');
     const blogContent = await generateBlogPost(topic.deepseekPrompt);
+
+    const angles = [
+      'Focus on the latest research and scientific breakthroughs from this year.',
+      'Take a contrarian or skeptical viewpoint. Challenge common assumptions.',
+      'Write from a beginner perspective. Explain concepts simply for newcomers.',
+      'Focus on practical, actionable advice. Step-by-step frameworks only.',
+      'Explore the ethical implications and societal impact of this topic.',
+      'Compare and contrast different approaches or schools of thought.',
+      'Write a forward-looking piece predicting trends for the next 2-3 years.',
+      'Focus on real-world case studies and examples (hypothetical but realistic).',
+      'Take a historical perspective. How did we get here and where are we going?',
+      'Write about common mistakes or misconceptions people have about this topic.',
+      'Interview-style: pose and answer the 5 most common questions people ask about this topic.',
+      'Write an "underrated ideas" piece highlighting overlooked aspects most people ignore.',
+      'Focus on the intersection of this topic with artificial intelligence and technology.',
+      'Write a "myth vs reality" piece debunking popular myths with evidence.',
+      'Take a global perspective. How does this topic differ across cultures and countries?',
+      'Focus on personal stories and narratives. Make it feel human and relatable.',
+      'Write a "what if" scenario exploring an alternative future or different path for this topic.',
+      'Focus on cost, accessibility, and democratization. Is this becoming available to everyone?',
+      'Write about the psychology or behavioral science behind why people engage with this topic.',
+      'Create a "beginner\'s toolkit" or "starter guide" framework for someone new to this topic.'
+    ];
+
+    const today = new Date();
+    const dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
+    const monthName = today.toLocaleDateString('en-US', { month: 'long' });
+    const dateContext = `Today is ${dayName}, ${monthName} ${today.getDate()}, ${today.getFullYear()}. Reference the current season naturally if relevant.`;
+    
+    const randomAngle = angles[Math.floor(Math.random() * angles.length)];
+    const enhancedPrompt = `${topic.deepseekPrompt}\n\n${dateContext}\n\nIMPORTANT ANGLE FOR THIS POST: ${randomAngle}`;
+    
+    const blogContent = await generateBlogPost(enhancedPrompt);
     
     // 2. Generate image
     console.log('🎨 STEP 2: Generating header image...');
