@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://blogandbeyond.com/tech/sitemap.xml
