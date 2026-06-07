@@ -103,12 +103,7 @@ ${cleanContent}`;
     fs.writeFileSync(postPath, frontMatter);
     console.log(`   Post created: ${postFilename}`);
     
-    // 5. Build Hugo site
-    console.log('🔨 STEP 6: Building site...');
-    execSync(`cd ${SITE_DIR} && hugo --minify`, { stdio: 'inherit' });
-    console.log('   Site built successfully');
-    
-    // 6. Summary
+    // 5. Summary
     console.log(`\n═══════════════════════════════════════`);
     console.log(`  ✅ PHASE 1 POST COMPLETE`);
     console.log(`═══════════════════════════════════════`);
