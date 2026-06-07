@@ -92,5 +92,6 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/health/public
+          destination_dir: health
           publish_branch: gh-pages
           keep_files: true

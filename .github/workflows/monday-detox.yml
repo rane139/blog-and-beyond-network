@@ -91,5 +91,6 @@ jobs:
         with:
           github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./sites/detox/public
+          destination_dir: detox
           publish_branch: gh-pages
           keep_files: true
