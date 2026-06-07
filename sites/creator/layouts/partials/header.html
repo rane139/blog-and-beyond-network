@@ -16,16 +16,7 @@
     <div class="header-inner">
         <nav class="nav">
             <div class="nav-left">
-                {{ if or .IsHome (eq .Kind "section") }}
-                <a class="brand-link" href="/">
-                    <span class="brand-icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/>
-                        </svg>
-                    </span>
-                    <span class="brand-title">Blog and Beyond</span>
-                </a>
-                {{ else }}
+                {{ if .IsPage }}
                 <a class="brand-link" href="/health/">
                     <span class="brand-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -33,6 +24,15 @@
                         </svg>
                     </span>
                     <span class="brand-title">Hyper-Personalized Health</span>
+                </a>
+                {{ else }}
+                <a class="brand-link" href="/">
+                    <span class="brand-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/>
+                        </svg>
+                    </span>
+                    <span class="brand-title">Blog and Beyond</span>
                 </a>
                 {{ end }}
             </div>
@@ -51,6 +51,8 @@
 (function() {
     var themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) return;
+    if (themeToggle.dataset.loaded) return;
+    themeToggle.dataset.loaded = 'true';
     
     var html = document.documentElement;
     var body = document.body;
