@@ -1,4 +1,4 @@
-baseURL = 'https://blogandbeyond.com/seo'
+baseURL = 'https://blogandbeyond.com/seo/'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Zero-Click SEO'
 theme = 'PaperMod'

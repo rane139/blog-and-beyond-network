@@ -1,4 +1,4 @@
-baseURL = 'https://blogandbeyond.com/detox'
+baseURL = 'https://blogandbeyond.com/detox/'
 languageCode = 'en-us'
 title = 'Blog And Beyond:  Digital Detox'
 theme = 'PaperMod'

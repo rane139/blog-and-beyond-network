@@ -88,10 +88,10 @@ async function main() {
       categories: [topic.category],
       description: seoDescription,
       cover: {
-        image: `/images/${imageFilename}`,
+        image: `images/${imageFilename}`,
         alt: `${topic.headline} - AI Generated Illustration`,
-        caption: `Daily Pulse: ${topic.headline}`,
-        relative: false
+        caption: `Blog and Beyond: ${topic.headline}`,
+        relative: true
       }
     };
     

@@ -1,0 +1,30 @@
+.logo-link {
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.logo-link:hover {
+    background: var(--theme);
+    color: white;
+}
+
+.site-title a {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--content);
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
