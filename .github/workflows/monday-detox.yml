@@ -2,7 +2,7 @@ name: Monday - Digital Detox
 
 on:
   schedule:
-    - cron: '0 1 * * 1'  # Sunday 7 AM UTC
+    - cron: '0 1 * * 1'
   workflow_dispatch:
 
 jobs:
@@ -93,4 +93,4 @@ jobs:
           publish_dir: ./sites/detox/public
           destination_dir: detox
           publish_branch: gh-pages
-          keep_files: true
+          keep_files: true# trigger refresh
