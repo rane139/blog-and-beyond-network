@@ -69,3 +69,4 @@ jobs:
           publish_branch: gh-pages
           keep_files: true
     # Deploy to gh-pages-nomad, cname: nomad.blogandbeyond.com
+# Force schedule registration Mon  8 Jun 2026 20:50:30 PST

@@ -94,3 +94,5 @@ jobs:
           destination_dir: detox
           publish_branch: gh-pages
           keep_files: true# trigger refresh
+
+# Force schedule registration Mon  8 Jun 2026 20:50:30 PST
